@@ -1,0 +1,6 @@
+framework module Uchardet {
+  umbrella header "Uchardet.h"
+
+  export *
+  module * { export * }
+}

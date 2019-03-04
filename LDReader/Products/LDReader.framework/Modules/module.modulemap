@@ -1,0 +1,6 @@
+framework module LDReader {
+  umbrella header "LDReader.h"
+
+  export *
+  module * { export * }
+}

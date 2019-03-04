@@ -1,0 +1,44 @@
+//
+//  LDTxtReader-Prefix.pch
+//  LDTxtReader
+//
+//  Created by 刘洪 on 2017/10/11.
+//  Copyright © 2017年 刘洪. All rights reserved.
+//
+
+
+
+
+#ifdef __OBJC__
+#define KScreenHeight [UIScreen mainScreen].bounds.size.height
+#define KScreenWidth [UIScreen mainScreen].bounds.size.width
+
+//#define SafeAreaTopHeight ([UIScreen mainScreen].bounds.size.height == 812.0 ? 24 : 0)
+//#define SafeAreaBottomHeight ([UIScreen mainScreen].bounds.size.height == 812.0 ? 34 : 0)
+#define KSafeAreaTop [UIApplication sharedApplication].keyWindow.safeAreaInsets.top
+#define KSafeAreaTopHeight()\
+({\
+    CGFloat safeAreaTopHeight = 0.0f;\
+    if (@available(iOS 11,*)) {\
+        safeAreaTopHeight = KSafeAreaTop?KSafeAreaTop - 20:0;\
+    }\
+    (safeAreaTopHeight);\
+})
+
+#define KSafeAreaBottomHeight()\
+({\
+    CGFloat safeAreaBottomHeight = 0.0f;\
+    if (@available(iOS 11,*)) {\
+    safeAreaBottomHeight = [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom;\
+    }\
+    (safeAreaBottomHeight);\
+})
+
+#define WARNING 2
+#define ERROR   3
+#define INFO    1
+
+#import "UIView+LDExtension.h"
+#import <UIKit/UIKit.h>
+#import <CoreText/CoreText.h>
+#endif
